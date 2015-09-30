@@ -1,12 +1,5 @@
 # Android Libraries
 
-## Standard Test Libraries
-
- - [Espresso](https://developer.android.com/training/testing/ui-testing/espresso-testing.html)
- - [Robolectric](http://robolectric.org/)
- - [Mockito](https://github.com/mockito/mockito)
- - JUnit 
-
 ## Standard Libraries
 
 ### Architecture
@@ -21,8 +14,6 @@
 
 ### Views
 - [Butterknife](http://jakewharton.github.io/butterknife/)
-- [Easy Adapter](https://github.com/ribot/easy-adapter)
 - [Calligraphy](https://github.com/chrisjenx/Calligraphy)
-- [PagerSlidingTabStrip] (https://github.com/astuetz/PagerSlidingTabStrip)
 
-For a list of other useful libraries visit [android arsenal](http://android-arsenal.com). Do also ask other Android devs here what libraries we’ve used recently as for a lot of things, what’s best changes very quickly.
+For a list of other useful libraries visit [android arsenal](http://android-arsenal.com).
