@@ -298,10 +298,28 @@ To only show logs on debug builds:
 ```java
 if (BuildConfig.DEBUG) Log.d(TAG, "The value of x is " + x);
 ```
-	
+Alternatively:
+
+Use [timber](https://github.com/JakeWharton/timber) for logging.It is a logger with a small, extensible API which provides utility on top of Android's normal Log class. 
+
+To only show logs on debug builds:
+
+```java
+public class ExampleApp extends Application {
+  @Override public void onCreate() {
+    super.onCreate();
+
+    if (BuildConfig.DEBUG) {
+      Timber.plant(new DebugTree());
+    } else {
+      Timber.plant(new CrashReportingTree());
+    }
+  }
+```
+
 ### 2.2.10 Class member ordering 
 
-There is no single correct solution for this but using a __logical__ and __consistent__ order will improve code learnability and readability. It is recommendable to use the following order:
+It is recommendable to use the following order:
 
 1. Constants 
 2. Fields 
@@ -411,14 +429,15 @@ When data is passed into an `Activity `or `Fragment` via `Intents` or a `Bundles
 
 When an `Activity` or `Fragment` expect arguments, it should provide a `static public` method that facilitates the creation of the `Fragment` or `Intent`.
 
-In the case of Activities the method is usually called `getStartIntent()`
+In the case of Activities the method is usually called `createIntent()`. Use Create Intent Inspect Plugin for automatically creating the method.
 
 ```java
-public static Intent getStartIntent(Context context, User user) {
-	Intent intent = new Intent(context, ThisActivity.class);
-	intent.putParcelableExtra(EXTRA_USER, user);
-	return intent;
-}
+ public static Intent createIntent(Context context, Bundle bundle) {
+        Intent intent = new Intent(context, ManualVerificationActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        intent.putExtra(BUNDLE_USER, bundle);
+        return intent;
+    }
 ```
 
 For Fragments it's named `newInstance()` and it handles the creation of the Fragment with the right arguments. 
@@ -595,25 +614,5 @@ As a general rule you should try to group similar attributes together. A good wa
 4. Other layout attributes, sorted alphabetically
 5. Remaining attributes, sorted alphabetically
 
-## 2.4 Tests style rules 
-
-### 2.4.1 Unit tests 
-
-The test classes should match the name of the class that the tests are targeting followed by `Test`. For example, If we create a test class that contains test for the `DataManager`, we should name it `DataManagerTest`.
-
-The name of the tests must start with `should` followed by the expected behaviour. For example:
-
-* `shouldLoadUserData()`
-* `shouldThrowExceptionWhenLoadingUser()`
-
-### 2.4.2 Espresso tests
-
-Every Espresso test class must target an Activity, therefore the name should match the name of the targeted Activity followed by `Test`, e.g. `SignInActivityTest`
-
-When using the Espresso api is a common practise to place chained method in new lines. 
-
-```java
-onView(withId(R.id.view))
-        .perform(scrollTo())
-        .check(matches(isDisplayed()))
-```
+## 2.4 Tests style
+-
