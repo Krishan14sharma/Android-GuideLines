@@ -15,6 +15,9 @@ New projects should follow the Android Gradle project structure that is defined 
 	* widget
 	* adapter
 * service
+* presenter
+* interactor
+* receiver
 * data
 	* remote
 	* local
