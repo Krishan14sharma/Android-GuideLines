@@ -585,6 +585,7 @@ Menu example:
         android:title="Done" />
 </menu>
 ```
+For view initialization use view injection with [Butterknife](https://github.com/JakeWharton/butterknife) and plugin [butterknife-zelezny](https://github.com/avast/android-butterknife-zelezny).
 
 #### 2.3.2.2 Strings
 
