@@ -6,9 +6,8 @@
   - [parcelable code](https://github.com/mcharmas/android-parcelable-intellij-plugin/)
   - [activity createIntent inspect](https://github.com/shiraji/create-intent-inspection)
   
-
 ## Misc
-  - [Genymotion](https://www.genymotion.com)
+  - [Stetho] (https://github.com/facebook/stetho)
 
  
 
