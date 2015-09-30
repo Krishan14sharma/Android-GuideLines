@@ -9,11 +9,13 @@ New projects should follow the Android Gradle project structure that is defined 
 
 #### App
 * ui
+	* base
 	* fragment
 	* activity
 	* dialog
 	* widget
 	* adapter
+	* view
 * service
 * presenter
 * interactor
